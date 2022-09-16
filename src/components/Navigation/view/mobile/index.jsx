@@ -1,4 +1,4 @@
-import { Show, createSignal } from "solid-js";
+import { Show, createSignal, createEffect, onCleanup } from "solid-js";
 import cn from "classnames";
 
 import { Logo } from "components/Logo";
@@ -11,6 +11,17 @@ import styles from "./Navigation.mobile.module.scss";
 
 export const NavigationMobile = (props) => {
   const [opened, setOpened] = createSignal(false);
+
+  createEffect(() => {
+    if (opened()) {
+      // use lib here
+      document.documentElement.style.overflow = "hidden";
+
+      onCleanup(() => {
+        document.documentElement.style.overflow = "";
+      });
+    }
+  });
 
   return (
     <nav
@@ -40,10 +51,10 @@ export const NavigationMobile = (props) => {
             links={RESOURCES_LINKS}
             styles={accorditionStyles}
           />
-          <a href="#" class={cn(accorditionStyles.button, styles.item)}>
+          <a href="" class={cn(accorditionStyles.button, styles.item)}>
             Updates
           </a>
-          <a href="#" class={cn(accorditionStyles.button, styles.item)}>
+          <a href="" class={cn(accorditionStyles.button, styles.item)}>
             Pricing
           </a>
         </menu>

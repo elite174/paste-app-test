@@ -26,10 +26,10 @@ export const NavigationDesktop = (props) => {
           links={RESOURCES_LINKS}
           styles={dropdownStyles}
         />
-        <a class={dropdownStyles.link} href="#">
+        <a class={dropdownStyles.link} href="">
           Updates
         </a>
-        <a class={dropdownStyles.link} href="#">
+        <a class={dropdownStyles.link} href="">
           Pricing
         </a>
       </div>
