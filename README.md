@@ -2,7 +2,11 @@
 
 ## Tech stack
 
+SPA: SolidJS + SCSS
+
 For this test task I chose SolidJS. It's very similar to React (so you'll be easy to get what's going on), but much better than React (in terms of simplicity, performance).
+
+SCSS provides lots of useful things like functions, template classes and other.
 
 The app is SPA, however for the production version of the app I'd use Astro (SSR) + Solid (logic).
 
