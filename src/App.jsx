@@ -1,9 +1,9 @@
-import { Navigation } from "./components/Navigation";
-import { BlankScreen } from "./components/BlankScreen";
+import { Navigation } from "components/Navigation";
+import { BlankScreen } from "components/BlankScreen";
 
-import { useHeaderTheme } from "./features/header-theme";
-import { useScrollDirection } from "./features/scroll-direction";
-import { useDevice } from "./features/device";
+import { useHeaderTheme } from "features/header-theme";
+import { useScrollDirection } from "features/scroll-direction";
+import { useDevice } from "features/device";
 
 import { THEME } from "core/constants";
 

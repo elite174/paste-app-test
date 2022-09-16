@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import { useClickOutside } from "core/hooks/useClickOutside";
 
-import { Icon } from "../../../../../Icon";
+import { Icon } from "components/Icon";
 
 // I noticed that dropdown for mobile and desktop views has
 // the same structure.

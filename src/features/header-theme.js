@@ -8,11 +8,12 @@ export const getTargetElementAttributes = (theme) => ({
   [DATA_ATTRIBUTE_NAME]: theme,
 });
 
-// todo split this into 2 hooks
 export const useHeaderTheme = (params) => {
   const [theme, setTheme] = createSignal("light");
 
   onMount(() => {
+    // we need to trigger intersection observer two times
+    // To understand what theme apply we also need to consider scrolling direction
     const intersectionObserver = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -20,12 +21,14 @@ export const useHeaderTheme = (params) => {
 
           if (
             params.scrollDirection() === SCROLL_DIRECTION.Down &&
+            // distinguish between 0.05 and 0.95
             entry.intersectionRatio < 0.5
           )
             continue;
 
           if (
             params.scrollDirection() === SCROLL_DIRECTION.Up &&
+            // distinguish between 0.05 and 0.95
             entry.intersectionRatio > 0.5
           )
             continue;
