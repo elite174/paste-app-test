@@ -22,14 +22,14 @@ export const useHeaderTheme = (params) => {
           if (
             params.scrollDirection() === SCROLL_DIRECTION.Down &&
             // distinguish between 0.05 and 0.95
-            entry.intersectionRatio < 0.5
+            entry.intersectionRatio < 0.2
           )
             continue;
 
           if (
             params.scrollDirection() === SCROLL_DIRECTION.Up &&
             // distinguish between 0.05 and 0.95
-            entry.intersectionRatio > 0.5
+            entry.intersectionRatio > 0.8
           )
             continue;
 
