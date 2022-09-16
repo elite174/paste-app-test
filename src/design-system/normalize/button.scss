@@ -1,0 +1,11 @@
+@mixin button() {
+  button {
+    padding: 0;
+    border: none;
+    appearance: none;
+    background: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  }
+}

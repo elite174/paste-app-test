@@ -1,0 +1,9 @@
+@use "ds/utils" as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: px(12);
+}

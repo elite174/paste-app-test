@@ -1,0 +1,21 @@
+@use "./constants/border-radius.scss" as borderRadius;
+@use "./constants/colors.scss" as colors;
+@use "./constants/timing.scss" as timing;
+@use "./constants/animation.scss";
+
+@use "./components/button.scss";
+
+@use "./normalize/index.scss" as normalize;
+
+@include normalize.button();
+@include normalize.list();
+
+:root {
+  @include borderRadius.borderRadius();
+  @include colors.colors();
+  @include timing.timing();
+}
+
+body {
+  color: var(--color-text);
+}

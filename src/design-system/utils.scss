@@ -1,0 +1,8 @@
+@use "sass:math";
+
+$gridBase: 0.25;
+$grid: $gridBase * 1rem;
+
+@function px($size) {
+  @return math.div(1rem, 16) * $size;
+}

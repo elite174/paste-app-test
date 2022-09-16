@@ -1,0 +1,18 @@
+@use "ds/utils" as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: px(10);
+}
+
+.logo {
+  height: px(36);
+  width: px(36);
+}
+
+.text {
+  color: var(--color-text);
+
+  transition: color var(--transition-m);
+}

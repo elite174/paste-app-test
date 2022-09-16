@@ -1,0 +1,44 @@
+@use "ds/utils.scss" as *;
+
+.container,
+.buttonContainer {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  --color-text: var(--color-text-light);
+  --color-bg: rgba(255, 255, 255, 0.6);
+
+  display: grid;
+  grid-template-rows: px(70);
+  grid-template-columns: minmax(auto, px(220)) [logo-start] auto [logo-end] 1fr [links-start] auto [links-end] 1fr [button-start] auto [button-end] minmax(
+      auto,
+      px(220)
+    );
+
+  background-color: var(--color-bg);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+
+  transition: background-color var(--transition-m);
+
+  &[data-theme="dark"] {
+    --color-text: var(--color-text-dark);
+    --color-bg: rgba(39, 39, 39, 0.9);
+  }
+}
+
+.logo {
+  grid-column: logo-start / logo-end;
+}
+
+.buttonContainer {
+  display: flex;
+
+  grid-column: links-start / links-end;
+}
+
+.button {
+  grid-column: button-start / button-end;
+}
