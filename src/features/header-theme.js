@@ -21,15 +21,15 @@ export const useHeaderTheme = (params) => {
 
           if (
             params.scrollDirection() === SCROLL_DIRECTION.Down &&
-            // distinguish between 0.05 and 0.95
-            entry.intersectionRatio < 0.2
+            // distinguish between two entries
+            entry.intersectionRatio < 0.5
           )
             continue;
 
           if (
             params.scrollDirection() === SCROLL_DIRECTION.Up &&
-            // distinguish between 0.05 and 0.95
-            entry.intersectionRatio > 0.8
+            // distinguish between two entries
+            entry.intersectionRatio > 0.5
           )
             continue;
 
@@ -37,7 +37,7 @@ export const useHeaderTheme = (params) => {
         }
       },
       {
-        threshold: [0.05, 0.95],
+        threshold: [0.05, 0.94],
       }
     );
 
