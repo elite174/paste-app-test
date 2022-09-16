@@ -11,7 +11,7 @@
 
   padding: px(12) px(20);
 
-  transition: color var(--transition-m);
+  transition: color var(--transition);
 }
 
 .container {
@@ -30,7 +30,7 @@
   background-color: var(--color-panel-bg);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: var(--border-radius-m);
-  transition: background-color var(--transition-m);
+  transition: background-color var(--transition);
 }
 
 .link,

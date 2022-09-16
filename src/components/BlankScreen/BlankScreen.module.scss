@@ -2,10 +2,10 @@
   height: 100vh;
 
   &.dark {
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-black);
   }
 
   &.light {
-    background-color: var(--color-bg-light);
+    background-color: var(--color-white);
   }
 }

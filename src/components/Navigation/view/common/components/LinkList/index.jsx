@@ -34,7 +34,7 @@ export const LinkList = (props) => {
         />
       </button>
       <Show when={opened()}>
-        <ul class={cn(props.styles.panel, "anim-appear")}>
+        <ul class={props.styles.panel}>
           <For each={props.links}>
             {(link) => (
               <li>

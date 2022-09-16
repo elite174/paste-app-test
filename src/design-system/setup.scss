@@ -1,16 +1,21 @@
-@use "./constants/border-radius.scss" as borderRadius;
-@use "./constants/colors.scss" as colors;
-@use "./constants/timing.scss" as timing;
-@use "./constants/animation.scss";
-
 @use "./components/button.scss";
 
 @use "./normalize.scss";
 
 :root {
-  @include borderRadius.borderRadius();
-  @include colors.colors();
-  @include timing.timing();
+  --border-radius-m: 10px;
+  --border-radius-xl: 30px;
+
+  // base colors
+  --color-white: #fff;
+  --color-black: #101010;
+  --color-gray: #ababb0;
+  --color-light-gray: rgba(171, 171, 176, 0.5);
+  --color-dark-gray: #6e6e73;
+
+  --color-accent: #0a84ff;
+
+  --transition: ease-in-out 150ms;
 }
 
 body {

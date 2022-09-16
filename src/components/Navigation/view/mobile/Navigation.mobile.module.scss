@@ -59,8 +59,8 @@ $navHeight: px(60);
 
     position: absolute;
 
-    transition: transform var(--transition-m),
-      background-color var(--transition-m);
+    transition: transform var(--transition),
+      background-color var(--transition);
 
     content: "";
   }

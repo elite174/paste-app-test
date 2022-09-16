@@ -5,6 +5,7 @@ import { ArrowDown } from "./icons/arrow-down";
 import styles from "./Icon.module.scss";
 
 const iconMap = {
+  // no code splitting for this at the moment
   arrowDown: ArrowDown,
 };
 
