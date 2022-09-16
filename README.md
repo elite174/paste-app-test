@@ -40,3 +40,4 @@ I use *px* function in css. Why? It's better to use rem units instead of px, bec
 4. If you have a CSS design system as a separate package it might be useful to use CSS layers (because sometimes you may want to override design system styles)
 5. When you open a mobile menu it's important to block scrolling (however it's not always necessary). Using just *overflow: hidden* is not enough for different browsers. There was a library (forgot the name) which does this thing.
 6. It's also possible to add smooth appear animations for the dropdown menus on the desktop version
+7. Move fonts styles to design system
