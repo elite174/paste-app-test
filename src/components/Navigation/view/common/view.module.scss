@@ -1,0 +1,22 @@
+%container {
+  --color-text: var(--color-text-light);
+  --color-bg: rgba(255, 255, 255, 0.6);
+  --color-panel-bg: var(--color-bg-light);
+  --color-item-hover: var(--color-dark-gray);
+  --color-item-active: var(--color-gray);
+
+  background-color: var(--color-bg);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+
+  transition: background-color var(--transition-m);
+
+  &[data-theme="dark"] {
+    --color-text: var(--color-text-dark);
+    --color-bg: rgba(39, 39, 39, 0.9);
+    --color-panel-bg: var(--color-bg-dark);
+    --color-item-hover: var(--color-gray);
+    --color-item-active: var(--color-light-gray);
+  }
+}
+

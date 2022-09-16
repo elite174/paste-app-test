@@ -1,0 +1,109 @@
+@use "ds/utils" as *;
+@use "../common/view.module.scss" as *;
+
+$padding-inline: px(20);
+$navHeight: px(60);
+
+.container {
+  @extend %container;
+
+  --color-menu-button-line: var(--color-black);
+  --color-bottom-line: var(--color-dark-gray);
+
+  &[data-theme="dark"] {
+    --color-menu-button-line: var(--color-white);
+    --color-bottom-line: var(--color-light-gray);
+  }
+
+  &.fullscreen {
+    --color-bg: var(--color-white);
+
+    &[data-theme="dark"] {
+      --color-bg: var(--color-black);
+    }
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-inline-start: px(20);
+}
+
+%line {
+  display: block;
+
+  height: 2px;
+  width: px(20);
+
+  background-color: var(--color-menu-button-line);
+}
+
+.menuButton {
+  position: relative;
+
+  height: px(60);
+  width: px(60);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    @extend %line;
+
+    position: absolute;
+
+    transition: transform var(--transition-m),
+      background-color var(--transition-m);
+
+    content: "";
+  }
+
+  // instead of icons I use simple transform things
+  &::before {
+    transform: translateY(-#{px(4)});
+  }
+
+  &::after {
+    transform: translateY(px(4));
+  }
+
+  &.opened {
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.menuContainer {
+  position: absolute;
+  left: 0;
+  top: 100%;
+
+  height: calc(100vh - $navHeight);
+  // for safari, chrome doesn't support this
+  height: calc(100dvh - $navHeight);
+  width: 100%;
+  padding-inline: px(20);
+  box-sizing: border-box;
+
+  background-color: var(--color-bg);
+}
+
+.item {
+  display: block;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--color-bottom-line);
+  }
+}

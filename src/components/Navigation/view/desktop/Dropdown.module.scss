@@ -1,0 +1,53 @@
+@use "ds/utils" as *;
+@use "../common/link-list.module.scss";
+
+%baseItem {
+  cursor: pointer;
+  color: var(--color-text);
+  text-decoration: none;
+
+  font-size: px(15);
+  font-weight: 500;
+
+  padding: px(12) px(20);
+
+  transition: color var(--transition-m);
+}
+
+.container {
+  position: relative;
+
+  border-radius: var(--border-radius-m);
+}
+
+.panel {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+  z-index: 1;
+
+  background-color: var(--color-panel-bg);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-m);
+  transition: background-color var(--transition-m);
+}
+
+.link,
+.button {
+  @extend %baseItem;
+}
+
+.link {
+  display: block;
+
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+
+  gap: px(4);
+}

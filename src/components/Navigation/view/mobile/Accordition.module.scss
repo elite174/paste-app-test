@@ -1,0 +1,38 @@
+@use "ds/utils" as *;
+@use "../common/link-list.module.scss";
+
+.containter {
+  padding-inline: px(20);
+}
+
+.button,
+.link {
+  color: var(--color-text);
+
+  font-size: px(24);
+  transition: color var(--transition-m);
+  text-decoration: none;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding-block: px(25);
+}
+
+.link {
+  padding-inline: px(20);
+  font-size: px(20);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: px(20);
+
+  padding-block-end: px(30);
+}

@@ -5,10 +5,7 @@
 
 @use "./components/button.scss";
 
-@use "./normalize/index.scss" as normalize;
-
-@include normalize.button();
-@include normalize.list();
+@use "./normalize.scss";
 
 :root {
   @include borderRadius.borderRadius();

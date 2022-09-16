@@ -1,6 +1,7 @@
 @mixin colors {
   // base colors
   --color-white: #fff;
+  --color-black: #101010;
   --color-gray: #ababb0;
   --color-light-gray: rgba(171, 171, 176, 0.5);
   --color-dark-gray: #6e6e73;
@@ -9,9 +10,9 @@
 
   // light theme
   --color-bg-light: var(--color-white);
-  --color-text-light: #101010;
+  --color-text-light: var(--color-black);
 
   // dark theme
-  --color-bg-dark: #101010;
+  --color-bg-dark: var(--color-black);
   --color-text-dark: var(--color-white);
 }

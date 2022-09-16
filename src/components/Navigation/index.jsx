@@ -1,42 +1,36 @@
-import cn from "classnames";
+import { Dynamic, Suspense } from "solid-js/web";
+import { lazy } from "solid-js";
 
-import { Logo } from "../Logo";
-import { Dropdown } from "./components/Dropdown";
+import { DEVICE } from "features/device";
 
-import { USE_CASES_LINKS, RESOURCES_LINKS } from "./constants";
+const LazyDesktopView = lazy(() =>
+  import("./view/desktop").then(({ NavigationDesktop }) => ({
+    default: NavigationDesktop,
+  }))
+);
 
-import styles from "./Navigation.module.scss";
-import commonStyles from "./common/styles.module.scss";
+const LazyMobileView = lazy(() =>
+  import("./view/mobile").then(({ NavigationMobile }) => ({
+    default: NavigationMobile,
+  }))
+);
 
-const defaultTheme = "light";
-const getDataAttributes = (theme = defaultTheme) => ({ ["data-theme"]: theme });
-
+// I don't want to blow up the component with different states and logic
+// so I decided split the view into two parts
+// Depending on the platform we'll load only necessary components
 export const Navigation = (props) => {
+  const componentToRender = () =>
+    props.device === DEVICE.Mobile ? LazyMobileView : LazyDesktopView;
+
   return (
-    <nav
-      {...getDataAttributes(props.theme)}
-      class={cn(props.class, styles.container)}
-    >
-      <Logo class={styles.logo} />
-      <div class={styles.buttonContainer}>
-        <Dropdown
-          theme={props.theme}
-          text="Use cases"
-          links={USE_CASES_LINKS}
-        />
-        <Dropdown
-          theme={props.theme}
-          text="Resources"
-          links={RESOURCES_LINKS}
-        />
-        <a class={commonStyles.link} href="#">
-          Updates
-        </a>
-        <a class={commonStyles.link} href="#">
-          Pricing
-        </a>
-      </div>
-      <button class={cn(styles.button, "button")}>Try for free</button>
-    </nav>
+    // here we can show something while loading
+    // or just listen outside this component if the resource is ready
+    <Suspense>
+      <Dynamic
+        component={componentToRender()}
+        class={props.class}
+        theme={props.theme}
+      />
+    </Suspense>
   );
 };

@@ -1,0 +1,24 @@
+.icon {
+  transition: transform var(--transition-m);
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.link,
+.button {
+  &:hover, &:focus {
+    color: var(--color-item-hover);
+  }
+
+  &:active {
+    color: var(--color-item-active);
+  }
+}
+
+.button {
+  &.opened {
+    color: var(--color-item-hover);
+  }
+}

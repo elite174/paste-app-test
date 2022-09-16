@@ -14,6 +14,8 @@ export default defineConfig({
     alias: {
       core: path.join(__dirname, "./src/core"),
       ds: path.join(__dirname, "./src/design-system"),
+      components: path.join(__dirname, "./src/components"),
+      features: path.join(__dirname, "./src/features"),
     },
   },
 });

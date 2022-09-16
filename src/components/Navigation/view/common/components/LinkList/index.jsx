@@ -3,12 +3,12 @@ import cn from "classnames";
 
 import { useClickOutside } from "core/hooks/useClickOutside";
 
-import { Icon } from "../../../Icon";
+import { Icon } from "../../../../../Icon";
 
-import styles from "./Dropdown.module.scss";
-import commonStyles from "../../common/styles.module.scss";
-
-export const Dropdown = (props) => {
+// I noticed that dropdown for mobile and desktop views has
+// the same structure.
+// So I decided to apply interesting strategy: I pass with props only css file
+export const LinkList = (props) => {
   const [opened, setOpened] = createSignal(false);
 
   let containerRef;
@@ -20,29 +20,25 @@ export const Dropdown = (props) => {
   });
 
   return (
-    <section
-      class={cn(styles.container, props.class, "anim-appear")}
-      data-theme={props.theme}
-      ref={containerRef}
-    >
+    <section class={cn(props.styles.container, props.class)} ref={containerRef}>
       <button
-        class={cn(styles.button, commonStyles.link, {
-          [styles.opened]: opened(),
+        class={cn(props.styles.button, {
+          [props.styles.opened]: opened(),
         })}
         onClick={() => setOpened((open) => !open)}
       >
         {props.text}
         <Icon
           name="arrowDown"
-          class={cn(styles.icon, { [styles.rotated]: !opened() })}
+          class={cn(props.styles.icon, { [props.styles.rotated]: !opened() })}
         />
       </button>
       <Show when={opened()}>
-        <ul class={styles.panel}>
+        <ul class={cn(props.styles.panel, "anim-appear")}>
           <For each={props.links}>
             {(link) => (
               <li>
-                <a class={cn(styles.link, commonStyles.link)} href={link.href}>
+                <a class={cn(props.styles.link)} href={link.href}>
                   {link.text}
                 </a>
               </li>
